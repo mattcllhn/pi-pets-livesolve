@@ -30,7 +30,16 @@ router.get('/test', function(req, res) {
 // GET /pets
 router.get('/', function(req, res) {
   console.log('in pets get');
-  res.sendStatus(200);
+
+  PetModel.find({}, function(err, petResults) {
+    if(err){
+      console.log(err);
+      res.sendStatus(500);
+    }else{
+      console.log('found pets!');
+      res.send(petResults);
+    }
+  });
 });
 
 // POST /pets
