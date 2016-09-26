@@ -7,16 +7,13 @@ var mongoose = require('mongoose');
 var connection = require('../modules/connection');
 mongoose.connect(connection);
 
-//require pets model
-var Pet = require('../models/petModel');
-
 // require and use index router
-var index = require('../routers/index');
-app.use('/', index);
+var indexRouter = require('../routers/index');
+app.use('/', indexRouter);
 
 // require and use pets router
-var pets = require('../routers/pets');
-app.use('/pets', pets);
+var petRouter = require('../routers/pets');
+app.use('/pets', petRouter);
 
 // server listen port
 var portDecision = process.env.PORT || 3000;
