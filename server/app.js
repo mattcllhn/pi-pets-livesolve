@@ -11,6 +11,9 @@ mongoose.connect(connection);
 // use json body parser
 app.use(bodyParser.json());
 
+// use public as static folder
+app.use(express.static('public'));
+
 // require and use index router
 var indexRouter = require('../routers/index');
 app.use('/', indexRouter);

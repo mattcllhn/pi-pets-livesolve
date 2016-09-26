@@ -49,7 +49,6 @@ Committing after each step
 8. how not to refresh
 9. load enum from db
 
-
 #### Technology
 - MEAN ( mongo, mongoose, express, node, angular)
 - body-parser
