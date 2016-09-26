@@ -1,6 +1,14 @@
 /* Main server file */
 var express = require('express');
 var app = express();
+var mongoose = require('mongoose');
+
+//connect to database
+var connection = require('../modules/connection');
+mongoose.connect(connection);
+
+//require pets model
+var Pet = require('../models/petModel');
 
 // require and use index router
 var index = require('../routers/index');
