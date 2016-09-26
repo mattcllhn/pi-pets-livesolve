@@ -6,6 +6,10 @@ var app = express();
 var index = require('../routers/index');
 app.use('/', index);
 
+// require and use pets router
+var pets = require('../routers/pets');
+app.use('/pets', pets);
+
 // server listen port
 var portDecision = process.env.PORT || 3000;
 
