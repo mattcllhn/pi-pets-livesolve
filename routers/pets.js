@@ -21,7 +21,7 @@ router.get('/test', function(req, res) {
         console.log(err);
         res.sendStatus(500); // nope!
       }else{
-        console.log('ash save!');
+        console.log('ash saved!');
         res.sendStatus(201); // 201 - created
       }
     });
@@ -45,7 +45,25 @@ router.get('/', function(req, res) {
 // POST /pets
 router.post('/', function(req, res) {
   console.log('in pets post');
-  res.sendStatus(200);
+  var sentPet = req.body;
+  console.log('sentPet =', sentPet);
+
+  var newPet = new PetModel({
+    name: sentPet.name,
+    animal_type: sentPet.animal_type,
+    age: sentPet.age,
+    image: sentPet.image
+  });
+
+  newPet.save(function(err) {
+    if(err){
+      console.log(err);
+      res.sendStatus(500); // nope!
+    }else{
+      console.log('new pet saved!');
+      res.sendStatus(201); // 201 - created
+    }
+  });
 });
 
 module.exports = router;

@@ -2,10 +2,14 @@
 var express = require('express');
 var app = express();
 var mongoose = require('mongoose');
+var bodyParser = require('body-parser');
 
 //connect to database
 var connection = require('../modules/connection');
 mongoose.connect(connection);
+
+// use json body parser
+app.use(bodyParser.json());
 
 // require and use index router
 var indexRouter = require('../routers/index');
