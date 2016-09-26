@@ -22,5 +22,19 @@
         </div>
       </div>
     </div>
+
+    <div ng-controller="addPetController">
+      <form>
+        <label for="name">Name: </label>
+        <input ng-model="name" type="text" name="name">
+        <label for="animal">Animal Type:</label>
+        <input ng-model="animal" type="text" name="animal">
+        <label for="age">Age:</label>
+        <input ng-model="age" type="text" name="age" value="">
+        <label for="image">Image:</label>
+        <input ng-model="image" type="text" name="image" value="">
+        <input ng-click="addPet(name, animal, age, image)" type="button" name="savePet" value="Add Pet">
+      </form>
+    </div>
   </body>
 </html>
